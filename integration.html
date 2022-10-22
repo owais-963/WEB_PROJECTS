@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<label for="exp">Enter your Expression</label>
+<input type="text" id="exp">
+<label for="a">lower limit</label>
+<input type="text" id="a"> 
+<label for="b">upper limit</label>
+<input type="text" id="b">  
+<input type="submit" onclick="integrate()">
+
+<br>
+
+<p id="ans">
+
+</p>
+
+<script>
+    sin=Math.sin;
+    cos=Math.cos;
+    tan=Math.tan;
+    asin=Math.asin;
+    acos=Math.acos;
+    atan=Math.atan;
+    cosh=Math.cosh;
+    sinh=Math.sinh;
+    tanh=Math.atanh;
+    asinh=Math.asinh;
+    acosh=Math.acosh;
+    atanh=Math.atanh;
+    log=Math.log;
+    e=Math.exp;
+    pi=Math.PI;
+    sqrt=Math.sqrt;
+
+    function integrate(){
+        exp=document.getElementById("exp").value;
+        a=document.getElementById("a").value;
+        a=eval(a)
+        b=document.getElementById("b").value;
+        b=eval(b)
+        n=100000;
+        h=(b-a)/n;
+
+        var f = (x) => eval(exp);
+
+        integration = 0.5*(f(a)+f(b));
+
+
+        for(i=1;i<=n;i++){
+
+            integration += f(a + i*h);
+
+        }
+
+
+        integration = h*integration;
+
+        integration = integration.toFixed(4);
+
+
+        document.getElementById('ans').innerHTML="Answer = "+integration;
+
+    }
+
+</script>
+    
+</body>
+</html>
