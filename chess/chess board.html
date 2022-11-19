@@ -39,16 +39,11 @@
 
         table = document.getElementById("table")
 
-        var head=['','a','b','c','d','e','f','g','h']
+        var head=["","a","b","c","d","e","f","g","h"]
 
-        for(let i=0; i<=8; i++){
-            heading=document.createElement('TH')
 
-            heading.innerHTML=head[i]
-            table.appendChild(heading);
-        }
 
-            for (let i=0;i<8;i++){
+            for (let i=8;i>0;i--){
 
                 row = table.insertRow(-1)
 
@@ -56,39 +51,41 @@
 
                 
 
-                heading.innerHTML=i+1
+                heading.innerHTML=i
 
-                row.appendChild(heading)
 
-            for(let j=0;j<8;j++){
+            for(let j=8;j>0;j--){
 
                 col = row.insertCell(-1)
 
                 p=document.createElement("div")
 
                 p.style.width="90px"
+
                 p.style.height="90px"
 
-                // if(i==1 | i==6){
-                //     p.innerHTML=str("P")
-                // }else if(i==0 | i==7){
-                //     if(j==0 | j==7){
+                
+                    if(i==2 | i==7){
+                     p.innerHTML=str("P")
+                 }else if(i==1 | i==8){
+                    if(j==1 | j==8){
 
-                //         //p.innerHTML=str("R")
-                //     }
-                //     else if(j==1 | j==6){
-                //         //p.innerHTML=str("kn")
-                //     }
-                //     else if(j==2 | j==5){
-                //         //p.innerHTML=str("B")
-                //     }
-                //     else if(j==3){
-                //         //p.innerHTML=str("Q")
-                //     }
-                //     else{
-                //         //p.innerHTML=str("K")
-                //     }
-                // }
+                       p.innerHTML=str("R")
+                     }
+                    else if(j==2 | j==7){
+                         p.innerHTML=str("kn")
+                    }
+                    else if(j==3 | j==6){
+                        p.innerHTML=str("B")
+                     }
+                     else if(j==5){
+                       p.innerHTML=str("Q")
+                     }
+                     else{
+                        p.innerHTML=str("K")
+                 }
+                 }
+                
 
                 if (j%2!=0 & i%2==0){
                     p.style.backgroundColor = "#000";
@@ -107,6 +104,18 @@
                 
             
             }
+
+            row.appendChild(heading)
+
+
+
+            /*for(let i=0; i<=8; i++){
+                heading=document.createElement('TH')
+    
+                heading.innerHTML=head[i]
+                table.appendChild(heading);
+            }
+            */
 
         //}
         
